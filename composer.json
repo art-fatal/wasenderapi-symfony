@@ -1,5 +1,5 @@
 {
-    "name": "wasenderapi/wasenderapi-symfony",
+    "name": "art-fatal/wasenderapi-symfony",
     "description": "Symfony bundle for WasenderAPI – send WhatsApp messages, manage contacts, groups, sessions, and handle webhooks",
     "type": "symfony-bundle",
     "license": "MIT",
