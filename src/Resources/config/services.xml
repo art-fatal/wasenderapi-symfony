@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+               https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="WasenderApi\SymfonyBundle\Client\WasenderApiClient">
+            <argument>%wasenderapi.api_key%</argument>
+            <argument>%wasenderapi.base_url%</argument>
+            <argument>%wasenderapi.personal_access_token%</argument>
+        </service>
+
+        <service id="wasenderapi.client" alias="WasenderApi\SymfonyBundle\Client\WasenderApiClient" public="true" />
+
+        <service id="WasenderApi\SymfonyBundle\Controller\WebhookController" public="true">
+            <argument type="service" id="event_dispatcher" />
+            <argument>%wasenderapi.webhook.secret%</argument>
+            <argument>%wasenderapi.webhook.signature_header%</argument>
+            <tag name="controller.service_arguments" />
+        </service>
+    </services>
+</container>
